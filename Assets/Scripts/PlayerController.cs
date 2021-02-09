@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour
 
 	// Create public variables for player speed, and for the Text UI game objects
 	public float speed;
+	public float kickback;
 	public TextMeshProUGUI countText;
 	public GameObject winTextObject;
-	public InputAction fire;
 
 	private float movementX;
 	private float movementY;
@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
 	public GameObject currentGun;
 	private GunShoot gun;
+	private Transform directionTransform;
 
 	// At the start of the game..
 	void Start()
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviour
 
 	void OnFire()
     {
+		rb.AddRelativeForce(Vector3.back * kickback, ForceMode.Impulse);
 		Debug.Log("Fire");
     }
 

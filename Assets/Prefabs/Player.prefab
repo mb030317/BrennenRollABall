@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  kickback: 0
   countText: {fileID: 0}
   winTextObject: {fileID: 0}
   currentGun: {fileID: 0}
@@ -168,13 +169,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7083372604051509503}
     m_Modifications:
+    - target: {fileID: 896509680353206683, guid: fb28ddcea478bcd47860beafec79d0d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070895585183228136, guid: fb28ddcea478bcd47860beafec79d0d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3071042121246055474, guid: fb28ddcea478bcd47860beafec79d0d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3437563703432769942, guid: fb28ddcea478bcd47860beafec79d0d7, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3437563703432769942, guid: fb28ddcea478bcd47860beafec79d0d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.494
       objectReference: {fileID: 0}
     - target: {fileID: 3437563703432769942, guid: fb28ddcea478bcd47860beafec79d0d7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -182,7 +195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3437563703432769942, guid: fb28ddcea478bcd47860beafec79d0d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.6
+      value: -0.022
       objectReference: {fileID: 0}
     - target: {fileID: 3437563703432769942, guid: fb28ddcea478bcd47860beafec79d0d7, type: 3}
       propertyPath: m_LocalRotation.w

@@ -1439,6 +1439,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7083372604051509502, guid: 795bdb9e4703ad140a8673089e158e5b, type: 3}
+      propertyPath: kickback
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7083372604051509502, guid: 795bdb9e4703ad140a8673089e158e5b, type: 3}
       propertyPath: countText
       value: 
       objectReference: {fileID: 1374246607}
