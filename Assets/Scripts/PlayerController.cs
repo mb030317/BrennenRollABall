@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 	public float speed;
 	public TextMeshProUGUI countText;
 	public GameObject winTextObject;
+	public InputAction fire;
 
 	private float movementX;
 	private float movementY;
@@ -18,9 +19,13 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody rb;
 	private int count;
 
+	public GameObject currentGun;
+	private GunShoot gun;
+
 	// At the start of the game..
 	void Start()
 	{
+
 		// Assign the Rigidbody component to our private rb variable
 		rb = GetComponent<Rigidbody>();
 
@@ -31,6 +36,9 @@ public class PlayerController : MonoBehaviour
 
 		// Set the text property of the Win Text UI to an empty string, making the 'You Win' (game over message) blank
 		winTextObject.SetActive(false);
+
+		//Set variable "gun" to the "GunShoot" script on the player's currentGun object.
+		gun = currentGun.GetComponent<GunShoot>();
 	}
 
 	void FixedUpdate()
@@ -63,6 +71,11 @@ public class PlayerController : MonoBehaviour
 		movementX = v.x;
 		movementY = v.y;
 	}
+
+	void OnFire()
+    {
+		Debug.Log("Fire");
+    }
 
 	void SetCountText()
 	{
