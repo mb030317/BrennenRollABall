@@ -161,7 +161,7 @@ MonoBehaviour:
   kickback: 0
   countText: {fileID: 0}
   winTextObject: {fileID: 0}
-  currentGun: {fileID: 0}
+  currentGun: {fileID: 3150334457765130851}
 --- !u!1001 &7366951539179463567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -234,5 +234,10 @@ PrefabInstance:
 --- !u!4 &5298492233143407129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3437563703432769942, guid: fb28ddcea478bcd47860beafec79d0d7, type: 3}
+  m_PrefabInstance: {fileID: 7366951539179463567}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3150334457765130851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5585755580679344620, guid: fb28ddcea478bcd47860beafec79d0d7, type: 3}
   m_PrefabInstance: {fileID: 7366951539179463567}
   m_PrefabAsset: {fileID: 0}

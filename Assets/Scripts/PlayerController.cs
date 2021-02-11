@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 	private int count;
 
 	public GameObject currentGun;
-	private GunShoot gun;
+	private SimpleShoot gun;
 	private Transform directionTransform;
 
 	// At the start of the game..
@@ -38,8 +38,8 @@ public class PlayerController : MonoBehaviour
 		// Set the text property of the Win Text UI to an empty string, making the 'You Win' (game over message) blank
 		winTextObject.SetActive(false);
 
-		//Set variable "gun" to the "GunShoot" script on the player's currentGun object.
-		gun = currentGun.GetComponent<GunShoot>();
+		//Set variable "gun" to the "SimpleShoot" script on the player's currentGun object.
+		gun = currentGun.GetComponent<SimpleShoot>();
 	}
 
 	void FixedUpdate()
@@ -75,7 +75,15 @@ public class PlayerController : MonoBehaviour
 
 	void OnFire()
     {
-		rb.AddRelativeForce(Vector3.back * kickback, ForceMode.Impulse);
+		Vector3 knockbackForce = new Vector3(Vector3.back.x, 0.0f, Vector3.back.z);
+
+		//apply gun kickback to ball
+		rb.AddRelativeForce(knockbackForce * kickback, ForceMode.Impulse);
+
+		//Run the shoot and casing release functions on the SimpleShoot script
+		gun.Shoot();
+		gun.CasingRelease();
+
 		Debug.Log("Fire");
     }
 

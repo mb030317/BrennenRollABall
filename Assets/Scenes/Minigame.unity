@@ -319,6 +319,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451414856}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &520904873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3150334457765130851, guid: 795bdb9e4703ad140a8673089e158e5b, type: 3}
+  m_PrefabInstance: {fileID: 7083372605175288741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +631,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 10, z: -10}
+  m_LocalPosition: {x: 0, y: 5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1183,11 +1188,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1938007089 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 994152126824700525, guid: 795bdb9e4703ad140a8673089e158e5b, type: 3}
-  m_PrefabInstance: {fileID: 7083372605175288741}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2075075825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7083372604051509502, guid: 795bdb9e4703ad140a8673089e158e5b, type: 3}
       propertyPath: kickback
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7083372604051509502, guid: 795bdb9e4703ad140a8673089e158e5b, type: 3}
       propertyPath: countText
@@ -1453,7 +1453,7 @@ PrefabInstance:
     - target: {fileID: 7083372604051509502, guid: 795bdb9e4703ad140a8673089e158e5b, type: 3}
       propertyPath: currentGun
       value: 
-      objectReference: {fileID: 1938007089}
+      objectReference: {fileID: 520904873}
     - target: {fileID: 7083372604051509502, guid: 795bdb9e4703ad140a8673089e158e5b, type: 3}
       propertyPath: fire.m_Name
       value: Fire
