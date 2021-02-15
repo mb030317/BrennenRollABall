@@ -10,14 +10,12 @@ public class PlayerController : MonoBehaviour
 	// Create public variables for player speed, and for the Text UI game objects
 	public float speed;
 	public float kickback;
-	public TextMeshProUGUI countText;
-	public GameObject winTextObject;
+	public int health = 3;
 
 	private float movementX;
 	private float movementY;
 
 	private Rigidbody rb;
-	private int count;
 
 	public GameObject currentGun;
 	private SimpleShoot gun;
@@ -30,19 +28,21 @@ public class PlayerController : MonoBehaviour
 		// Assign the Rigidbody component to our private rb variable
 		rb = GetComponent<Rigidbody>();
 
-		// Set the count to zero 
-		count = 0;
-
-		SetCountText();
-
-		// Set the text property of the Win Text UI to an empty string, making the 'You Win' (game over message) blank
-		winTextObject.SetActive(false);
-
 		//Set variable "gun" to the "SimpleShoot" script on the player's currentGun object.
 		gun = currentGun.GetComponent<SimpleShoot>();
 	}
 
-	void FixedUpdate()
+    private void Update()
+    {
+        if(health <= 0) //if the player's health reaches 0
+        {
+			//you lose
+
+			Destroy(this.gameObject);
+        }
+    }
+
+    void FixedUpdate()
 	{
 		// Create a Vector3 variable, and assign X and Z to feature the horizontal and vertical float variables above
 		Vector3 movement = new Vector3(movementX, 0.0f, movementY);
@@ -50,20 +50,14 @@ public class PlayerController : MonoBehaviour
 		rb.AddForce(movement * speed);
 	}
 
-	void OnTriggerEnter(Collider other)
-	{
-		// ..and if the GameObject you intersect has the tag 'Pick Up' assigned to it..
-		if (other.gameObject.CompareTag("PickUp"))
-		{
-			other.gameObject.SetActive(false);
-
-			// Add one to the score variable 'count'
-			count = count + 1;
-
-			// Run the 'SetCountText()' function (see below)
-			SetCountText();
-		}
-	}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "bullet") //if the player is hit by a bullet
+        {
+			health--;
+			Debug.Log("I've been shot!");
+        }
+    }
 
 	void OnMove(InputValue value)
 	{
@@ -86,15 +80,4 @@ public class PlayerController : MonoBehaviour
 
 		Debug.Log("Fire");
     }
-
-	void SetCountText()
-	{
-		countText.text = "Count: " + count.ToString();
-
-		if (count >= 12)
-		{
-			// Set the text value of your 'winText'
-			winTextObject.SetActive(true);
-		}
-	}
 }
