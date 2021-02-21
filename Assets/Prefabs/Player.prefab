@@ -213,6 +213,12 @@ MonoBehaviour:
   kickback: 5
   health: 3
   currentGun: {fileID: 3150334457765130851}
+  manager: {fileID: 0}
+  playerColor:
+  - {fileID: 2100000, guid: f7f3602d3ac19dc4a8357e5df24b06d4, type: 2}
+  - {fileID: 2100000, guid: e32b38bd991398b4eb421ca56691ef33, type: 2}
+  - {fileID: 2100000, guid: 6c649a5601c4dc64fb8a2d16a1a6e7b8, type: 2}
+  - {fileID: 2100000, guid: 8e263233c81d6e8479a86f88f161d4a3, type: 2}
 --- !u!1001 &7366951539179463567
 PrefabInstance:
   m_ObjectHideFlags: 0

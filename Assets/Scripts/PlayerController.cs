@@ -7,7 +7,7 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
 
-	// Create public variables for player speed, and for the Text UI game objects
+	// Create public variables for player speed, gun kickback, and health
 	public float speed;
 	public float kickback;
 	public int health = 3;
@@ -20,16 +20,44 @@ public class PlayerController : MonoBehaviour
 	public GameObject currentGun;
 	private SimpleShoot gun;
 	private Transform directionTransform;
+	public PlayerManager manager;
+	public Material[] playerColor; //create an index for the different player colors
+
+	private MeshRenderer material;
 
 	// At the start of the game..
 	void Start()
 	{
+		manager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>(); //grabs the PlayerManager class from the PlayerManager object
+		material = GetComponent<MeshRenderer>();
+
+        switch (manager.spawnLocation) //handles spawning players with different properties
+        {
+			case 1:
+				this.gameObject.transform.position = new Vector3(-5f, 0.5f, 5f); //sets player spawn location
+				material.material = playerColor[0]; //changes the color for each player
+				break;
+			case 2:
+				this.gameObject.transform.position = new Vector3(5f, 0.5f, 5f);
+				material.material = playerColor[1];
+				break;
+			case 3:
+				this.gameObject.transform.position = new Vector3(5f, 0.5f, -5f);
+				material.material = playerColor[2];
+				break;
+			case 4:
+				this.gameObject.transform.position = new Vector3(-5f, 0.5f, -5f);
+				material.material = playerColor[3];
+				break;
+        }
 
 		// Assign the Rigidbody component to our private rb variable
 		rb = GetComponent<Rigidbody>();
 
 		//Set variable "gun" to the "SimpleShoot" script on the player's currentGun object.
 		gun = currentGun.GetComponent<SimpleShoot>();
+
+
 	}
 
     private void Update()
