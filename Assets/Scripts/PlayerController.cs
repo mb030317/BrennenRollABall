@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         {
 			//you lose
 
-			Destroy(this.gameObject);
+			this.gameObject.SetActive(false);
         }
     }
 
