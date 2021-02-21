@@ -9,6 +9,9 @@ public class PlayerManager : MonoBehaviour
     public int spawnLocation = 0;
     public bool playersReady = false;
 
+    public GameObject joinText;
+    public GameObject readyText;
+
     public PlayerController[] players;
 
     private void Start()
@@ -39,6 +42,8 @@ public class PlayerManager : MonoBehaviour
                 if (players[0].ready && players[1].ready)
                 {
                     playersReady = true;
+                    joinText.SetActive(false);
+                    readyText.SetActive(false);
                 }
                 break;
             case 3:
@@ -49,6 +54,8 @@ public class PlayerManager : MonoBehaviour
                 if (players[0].ready && players[1].ready && players[2].ready)
                 {
                     playersReady = true;
+                    joinText.SetActive(false);
+                    readyText.SetActive(false);
                 }
                 break;
             case 4:
@@ -59,6 +66,8 @@ public class PlayerManager : MonoBehaviour
                 if (players[0].ready && players[1].ready && players[2].ready && players[3].ready)
                 {
                     playersReady = true;
+                    joinText.SetActive(false);
+                    readyText.SetActive(false);
                 }
                 break;
             default:
