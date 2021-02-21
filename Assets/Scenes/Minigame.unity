@@ -406,6 +406,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   spawnLocation: 0
+  playersReady: 0
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &451414856
 GameObject:
   m_ObjectHideFlags: 0

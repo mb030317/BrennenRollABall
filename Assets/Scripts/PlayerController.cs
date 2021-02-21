@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
 	private MeshRenderer material;
 
+	public bool ready = false;
+
 	// At the start of the game..
 	void Start()
 	{
@@ -36,18 +38,22 @@ public class PlayerController : MonoBehaviour
 			case 1:
 				this.gameObject.transform.position = new Vector3(-5f, 0.5f, 5f); //sets player spawn location
 				material.material = playerColor[0]; //changes the color for each player
+				gameObject.name = "Player1"; //sets the name of this player for the playermanager script
 				break;
 			case 2:
 				this.gameObject.transform.position = new Vector3(5f, 0.5f, 5f);
 				material.material = playerColor[1];
+				gameObject.name = "Player2";
 				break;
 			case 3:
 				this.gameObject.transform.position = new Vector3(5f, 0.5f, -5f);
 				material.material = playerColor[2];
+				gameObject.name = "Player3";
 				break;
 			case 4:
 				this.gameObject.transform.position = new Vector3(-5f, 0.5f, -5f);
 				material.material = playerColor[3];
+				gameObject.name = "Player4";
 				break;
         }
 
@@ -89,23 +95,43 @@ public class PlayerController : MonoBehaviour
 
 	void OnMove(InputValue value)
 	{
-		Vector2 v = value.Get<Vector2>();
+		if(manager.playersReady == true)
+        {
+			Vector2 v = value.Get<Vector2>();
 
-		movementX = v.x;
-		movementY = v.y;
+			movementX = v.x;
+			movementY = v.y;
+		}
+	}
+	void OnFire()
+	{
+		if(manager.playersReady == false)
+        {
+			if(ready == false)
+            {
+				ready = true;
+            }
+
+            else
+            {
+				ready = false;
+            }
+        }
+
+        else
+        {
+			Vector3 knockbackForce = new Vector3(Vector3.back.x, 0.0f, Vector3.back.z);
+
+			//apply gun kickback to ball
+			rb.AddRelativeForce(knockbackForce * kickback, ForceMode.Impulse);
+
+			//Run the shoot and casing release functions on the SimpleShoot script
+			gun.Shoot();
+			gun.CasingRelease();
+
+			Debug.Log("Fire");
+		}
+
 	}
 
-	void OnFire()
-    {
-		Vector3 knockbackForce = new Vector3(Vector3.back.x, 0.0f, Vector3.back.z);
-
-		//apply gun kickback to ball
-		rb.AddRelativeForce(knockbackForce * kickback, ForceMode.Impulse);
-
-		//Run the shoot and casing release functions on the SimpleShoot script
-		gun.Shoot();
-		gun.CasingRelease();
-
-		Debug.Log("Fire");
-    }
 }
